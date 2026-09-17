@@ -3,31 +3,805 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Suryansh</title>
+    <title>Suryansh Singh</title>
+    <meta name="description" content="Portfolio of Suryansh Singh &mdash; Data Engineer and Full Stack Developer specializing in Azure pipelines, scalable backends, and data-intensive software." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+:root {
+  --color-name: #000000;
+  --color-desc: #5c3a21;
+  --color-avail: #b18418;
+  --color-exp: #315c46;
+  --color-proj: #293f70;
+  --color-metric: #963d32;
+  --color-skill: #674878;
+  --color-edu: #8a4f1d;
+  --color-train: #6d5630;
+  --color-conn: #176563;
+  --color-link: #0645d8;
+  --bg-page: #ffffff;
+  --bg-card: #ffffff;
+  --bg-subtle: #f9fafb;
+  --border-subtle: #e5e7eb;
+  --border-hover: #d1d5db;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  background: var(--bg-page);
+  font-family: var(--font-main);
+  color: #111827;
+  line-height: 1.6;
+  padding: 24px 20px 60px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+header.brand-header {
+  margin-bottom: 24px;
+}
+
+.name-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.name-svg text {
+  fill: var(--color-name);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 200px;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  margin-top: 14px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.meta-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.location-tag {
+  color: var(--color-avail);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.75;
+  }
+}
+
+.availability-tag {
+  color: var(--color-avail);
+  background: rgba(177, 132, 24, 0.12);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+}
+
+.meta-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social-link {
+  color: var(--color-conn);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(23, 101, 99, 0.08);
+  transition: all 0.2s ease;
+}
+
+.social-link:hover {
+  background: rgba(23, 101, 99, 0.18);
+  transform: translateY(-1px);
+}
+
+.hero-intro {
+  margin-bottom: 40px;
+  padding: 24px 28px;
+  border-left: 5px solid var(--color-desc);
+  background: rgba(92, 58, 33, 0.03);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.hero-intro p {
+  color: var(--color-desc);
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.hero-intro a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.hero-intro a:hover {
+  color: #032b8a;
+}
+
+.portfolio-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.section-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid var(--border-subtle);
+}
+
+.section-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.section-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.experience-section .section-label {
+  color: var(--color-exp);
+  background: rgba(49, 92, 70, 0.12);
+}
+
+.experience-section .section-title {
+  color: var(--color-exp);
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.experience-card {
+  padding: 22px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  border-left: 4px solid var(--color-exp);
+}
+
+.experience-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-header-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.company-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-exp);
+}
+
+.role-badge {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.date-pill {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-exp);
+  background: rgba(49, 92, 70, 0.08);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.experience-card p {
+  color: var(--color-exp);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.projects-section .section-label {
+  color: var(--color-proj);
+  background: rgba(41, 63, 112, 0.12);
+}
+
+.projects-section .section-title {
+  color: var(--color-proj);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  border-top: 4px solid var(--color-proj);
+}
+
+.project-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.project-card.featured {
+  grid-column: 1 / -1;
+  background: linear-gradient(to bottom right, #ffffff, #fafbfd);
+  border-top-width: 5px;
+}
+
+.project-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.project-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-proj);
+}
+
+.project-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-link);
+  text-decoration: none;
+  background: rgba(6, 69, 216, 0.08);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  transition: all 0.15s ease;
+}
+
+.project-link-btn:hover {
+  background: var(--color-link);
+  color: #ffffff;
+}
+
+.project-desc {
+  color: var(--color-proj);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.metrics-box {
+  margin-top: 14px;
+  padding: 16px;
+  background: rgba(150, 61, 50, 0.05);
+  border: 1px dashed rgba(150, 61, 50, 0.3);
+  border-radius: var(--radius-md);
+}
+
+.metrics-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+  color: var(--color-metric);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.metrics-text {
+  color: var(--color-metric);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.skills-section .section-label {
+  color: var(--color-skill);
+  background: rgba(103, 72, 120, 0.12);
+}
+
+.skills-section .section-title {
+  color: var(--color-skill);
+}
+
+.skills-card {
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--color-skill);
+}
+
+.skills-lead {
+  color: var(--color-skill);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.skills-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-skill);
+  background: rgba(103, 72, 120, 0.08);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(103, 72, 120, 0.15);
+  transition: all 0.15s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(103, 72, 120, 0.16);
+  transform: translateY(-1px);
+}
+
+.two-col-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.edu-card {
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--color-edu);
+}
+
+.edu-card .section-label {
+  color: var(--color-edu);
+  background: rgba(138, 79, 29, 0.12);
+}
+
+.edu-card .section-title {
+  color: var(--color-edu);
+}
+
+.edu-card p {
+  color: var(--color-edu);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.train-card {
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--color-train);
+}
+
+.train-card .section-label {
+  color: var(--color-train);
+  background: rgba(109, 86, 48, 0.12);
+}
+
+.train-card .section-title {
+  color: var(--color-train);
+}
+
+.train-card p {
+  color: var(--color-train);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.connect-card {
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--color-conn);
+}
+
+.connect-card .section-label {
+  color: var(--color-conn);
+  background: rgba(23, 101, 99, 0.12);
+}
+
+.connect-card .section-title {
+  color: var(--color-conn);
+}
+
+.connect-card p {
+  color: var(--color-conn);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.connect-card a {
+  color: var(--color-link);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.connect-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.connect-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.connect-btn.primary {
+  background: var(--color-conn);
+  color: #ffffff !important;
+}
+
+.connect-btn.primary:hover {
+  background: #114c4a;
+  transform: translateY(-1px);
+}
+
+.connect-btn.secondary {
+  background: rgba(23, 101, 99, 0.08);
+  color: var(--color-conn) !important;
+  border-color: rgba(23, 101, 99, 0.2);
+}
+
+.connect-btn.secondary:hover {
+  background: rgba(23, 101, 99, 0.15);
+  transform: translateY(-1px);
+}
+
+.footer-note {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 16px 14px 40px;
+  }
+
+  .meta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .projects-grid,
+  .two-col-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-intro {
+    padding: 18px 20px;
+  }
+
+  .card-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+    </style>
   </head>
   <body>
-    <svg class="name" viewBox="7 12 986 153" role="img" aria-label="Suryansh">
-      <text x="0" y="160" textLength="1000" lengthAdjust="spacingAndGlyphs">SURYANSH</text>
-    </svg>
-    <section class="intro" aria-label="Introduction">
-      <p>
-        <span class="copy">
-          <span class="description">I have experience in data-intensive software development. I built <a href="https://governmentninja.com" target="_blank" rel="noopener noreferrer">governmentninja.com</a>, <a href="https://outmatch.lol" target="_blank" rel="noopener noreferrer">outmatch.lol</a>, <a href="https://pollbuzz.suryansh.lol" target="_blank" rel="noopener noreferrer">pollbuzz.suryansh.lol</a>, <a href="https://bulkflow.suryansh.lol" target="_blank" rel="noopener noreferrer">bulkflow.suryansh.lol</a> and more. I have worked as a data engineer, full-stack developer, and part-time video editor.</span>
-          <span class="location">Based in Noida, India.</span>
-          <span class="availability">Open to relocation.</span>
-          <span class="experience">At Crowe from February to July 2026, I built and maintained Azure ELT pipelines with Azure Data Factory, ADLS Gen2, and Azure Databricks; implemented transformation, validation, reporting, and data-quality automation workflows; and contributed to an MCP architecture initiative for AI-enabled workflows.</span>
-          <span class="experience">At ShelfEx from July 2025 to January 2026, I led backend development from initial design to production, designing data models, APIs, and workflows while working directly with stakeholders.</span>
-          <span class="experience">As a Full Stack Development Teaching Assistant at Internshala from January to February 2025, I evaluated projects, led daily technical sessions, and helped students with debugging and application architecture.</span>
-          <span class="projects">My featured work includes <a href="https://governmentninja.com" target="_blank" rel="noopener noreferrer">Government Ninja</a>, a government-job discovery platform with eligibility checks, personalized alerts, role-based accounts, and a 20+ stage automated data pipeline.</span>
-          <span class="metrics">It generated 100,000+ impressions and 3,000+ clicks in two months, gained 100+ registered users, published 1,900+ validated job listings, and achieved 95%+ PageSpeed scores for SEO, performance, and accessibility.</span>
-          <span class="projects"><a href="https://outmatch.lol" target="_blank" rel="noopener noreferrer">Out Match</a> is a community-driven global leaderboard powered by head-to-head voting and a chess-inspired Elo system. <a href="https://pollbuzz.suryansh.lol" target="_blank" rel="noopener noreferrer">Poll Buzz</a> runs time-limited polling campaigns with real-time results. My Menu Processing Service turns Google Cloud Storage food-menu datasets into clean structured JSON through parallel extraction, parsing, cleaning, transformation, and routing. <a href="https://bulkflow.suryansh.lol" target="_blank" rel="noopener noreferrer">Bulk Flow</a> validates and processes Excel datasets containing 85,000+ rows while preserving their data.</span>
-          <span class="skills">I work with Azure Data Factory, ADLS Gen2, Azure Databricks, Microsoft Fabric, PySpark, Python, SQL, JavaScript, TypeScript, React, Next.js, Node.js, Express.js, PostgreSQL, MongoDB, Drizzle ORM, NumPy, Pandas, pytest, GitHub Actions, and data engineering practices including ETL, ELT, warehousing, modeling, validation, and Medallion architecture.</span>
-          <span class="education">My B.Tech in Computer Science and Engineering has an 8.07/10 CGPA; I scored 94.40% in Class 12 and 93.80% in Class 10.</span>
-          <span class="training">My training includes Data and Analytics, SQL for Data Analysis, Data Analytics, and full stack web development across MERN, React, Next.js, and Redux.</span>
-          <span class="connect">Find me on <a href="https://github.com/suryanshishere" target="_blank" rel="noopener noreferrer">GitHub</a>, <a href="https://linkedin.com/in/suryanshishere" target="_blank" rel="noopener noreferrer">LinkedIn</a>, and <a href="https://x.com/suryaalgorithm" target="_blank" rel="noopener noreferrer">X</a>, or email <a href="mailto:heresuryanshsingh@gmail.com">heresuryanshsingh@gmail.com</a>. Some project repositories are private; source access is available upon request.</span>
-        </span>
-      </p>
-    </section>
+    <div class="container">
+      <header class="brand-header">
+        <svg class="name-svg" viewBox="7 12 986 153" role="img" aria-label="Suryansh">
+          <text x="0" y="160" textLength="1000" lengthAdjust="spacingAndGlyphs">SURYANSH</text>
+        </svg>
+
+        <div class="meta-bar">
+          <div class="meta-status">
+            <span class="location-tag">Based in Noida, India.</span>
+            <span class="status-dot"></span>
+            <span class="availability-tag">Open to relocation.</span>
+          </div>
+          <nav class="meta-socials" aria-label="Quick links">
+            <a href="https://github.com/suryanshishere" target="_blank" rel="noopener noreferrer" class="social-link">GitHub ↗</a>
+            <a href="https://linkedin.com/in/suryanshishere" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn ↗</a>
+            <a href="https://x.com/suryaalgorithm" target="_blank" rel="noopener noreferrer" class="social-link">X ↗</a>
+            <a href="mailto:heresuryanshsingh@gmail.com" class="social-link">Email ↗</a>
+          </nav>
+        </div>
+      </header>
+
+      <section class="hero-intro" aria-label="Introduction">
+        <p>
+          I have experience in data-intensive software development. I built
+          <a href="https://governmentninja.com" target="_blank" rel="noopener noreferrer">governmentninja.com</a>,
+          <a href="https://outmatch.lol" target="_blank" rel="noopener noreferrer">outmatch.lol</a>,
+          <a href="https://pollbuzz.suryansh.lol" target="_blank" rel="noopener noreferrer">pollbuzz.suryansh.lol</a>,
+          <a href="https://bulkflow.suryansh.lol" target="_blank" rel="noopener noreferrer">bulkflow.suryansh.lol</a>
+          and more. I have worked as a data engineer, full-stack developer, and part-time video editor.
+        </p>
+      </section>
+
+      <main class="portfolio-grid">
+        <section class="experience-section" aria-label="Work Experience">
+          <div class="section-title-wrap">
+            <span class="section-label">Experience</span>
+            <h2 class="section-title">Work History</h2>
+          </div>
+          <div class="experience-list">
+            <article class="experience-card">
+              <div class="card-header-row">
+                <div>
+                  <h3 class="company-title">Crowe</h3>
+                  <span class="role-badge">Data Engineer Intern</span>
+                </div>
+                <span class="date-pill">February 2026 &ndash; July 2026</span>
+              </div>
+              <p>At Crowe from February to July 2026, I built and maintained Azure ELT pipelines with Azure Data Factory, ADLS Gen2, and Azure Databricks; implemented transformation, validation, reporting, and data-quality automation workflows; and contributed to an MCP architecture initiative for AI-enabled workflows.</p>
+            </article>
+
+            <article class="experience-card">
+              <div class="card-header-row">
+                <div>
+                  <h3 class="company-title">ShelfEx</h3>
+                  <span class="role-badge">Full Stack Developer</span>
+                </div>
+                <span class="date-pill">July 2025 &ndash; January 2026</span>
+              </div>
+              <p>At ShelfEx from July 2025 to January 2026, I led backend development from initial design to production, designing data models, APIs, and workflows while working directly with stakeholders.</p>
+            </article>
+
+            <article class="experience-card">
+              <div class="card-header-row">
+                <div>
+                  <h3 class="company-title">Internshala</h3>
+                  <span class="role-badge">Full Stack Development Teaching Assistant</span>
+                </div>
+                <span class="date-pill">January 2025 &ndash; February 2025</span>
+              </div>
+              <p>As a Full Stack Development Teaching Assistant at Internshala from January to February 2025, I evaluated projects, led daily technical sessions, and helped students with debugging and application architecture.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="projects-section" aria-label="Featured Projects">
+          <div class="section-title-wrap">
+            <span class="section-label">Projects</span>
+            <h2 class="section-title">Featured Work</h2>
+          </div>
+          <div class="projects-grid">
+            <article class="project-card featured">
+              <div>
+                <div class="project-title-row">
+                  <h3 class="project-title">Government Ninja</h3>
+                  <a href="https://governmentninja.com" target="_blank" rel="noopener noreferrer" class="project-link-btn">governmentninja.com ↗</a>
+                </div>
+                <p class="project-desc">My featured work includes Government Ninja, a government-job discovery platform with eligibility checks, personalized alerts, role-based accounts, and a 20+ stage automated data pipeline.</p>
+              </div>
+              <div class="metrics-box">
+                <span class="metrics-label">Impact &amp; Performance</span>
+                <p class="metrics-text">It generated 100,000+ impressions and 3,000+ clicks in two months, gained 100+ registered users, published 1,900+ validated job listings, and achieved 95%+ PageSpeed scores for SEO, performance, and accessibility.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-title-row">
+                <h3 class="project-title">Out Match</h3>
+                <a href="https://outmatch.lol" target="_blank" rel="noopener noreferrer" class="project-link-btn">outmatch.lol ↗</a>
+              </div>
+              <p class="project-desc">Out Match is a community-driven global leaderboard powered by head-to-head voting and a chess-inspired Elo system.</p>
+            </article>
+
+            <article class="project-card">
+              <div class="project-title-row">
+                <h3 class="project-title">Poll Buzz</h3>
+                <a href="https://pollbuzz.suryansh.lol" target="_blank" rel="noopener noreferrer" class="project-link-btn">pollbuzz.suryansh.lol ↗</a>
+              </div>
+              <p class="project-desc">Poll Buzz runs time-limited polling campaigns with real-time results.</p>
+            </article>
+
+            <article class="project-card">
+              <div class="project-title-row">
+                <h3 class="project-title">Menu Processing Service</h3>
+                <span class="date-pill">Data Pipeline</span>
+              </div>
+              <p class="project-desc">My Menu Processing Service turns Google Cloud Storage food-menu datasets into clean structured JSON through parallel extraction, parsing, cleaning, transformation, and routing.</p>
+            </article>
+
+            <article class="project-card">
+              <div class="project-title-row">
+                <h3 class="project-title">Bulk Flow</h3>
+                <a href="https://bulkflow.suryansh.lol" target="_blank" rel="noopener noreferrer" class="project-link-btn">bulkflow.suryansh.lol ↗</a>
+              </div>
+              <p class="project-desc">Bulk Flow validates and processes Excel datasets containing 85,000+ rows while preserving their data.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="skills-section" aria-label="Technical Skills">
+          <div class="section-title-wrap">
+            <span class="section-label">Skills</span>
+            <h2 class="section-title">Technical Expertise</h2>
+          </div>
+          <div class="skills-card">
+            <p class="skills-lead">I work with Azure Data Factory, ADLS Gen2, Azure Databricks, Microsoft Fabric, PySpark, Python, SQL, JavaScript, TypeScript, React, Next.js, Node.js, Express.js, PostgreSQL, MongoDB, Drizzle ORM, NumPy, Pandas, pytest, GitHub Actions, and data engineering practices including ETL, ELT, warehousing, modeling, validation, and Medallion architecture.</p>
+            <div class="skills-tags-wrap">
+              <span class="skill-tag">Azure Data Factory</span>
+              <span class="skill-tag">ADLS Gen2</span>
+              <span class="skill-tag">Azure Databricks</span>
+              <span class="skill-tag">Microsoft Fabric</span>
+              <span class="skill-tag">PySpark</span>
+              <span class="skill-tag">ETL &amp; ELT</span>
+              <span class="skill-tag">Medallion Architecture</span>
+              <span class="skill-tag">Data Warehousing</span>
+              <span class="skill-tag">Data Modeling</span>
+              <span class="skill-tag">Data Validation</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">Drizzle ORM</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">pytest</span>
+              <span class="skill-tag">GitHub Actions</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="two-col-grid">
+          <section class="edu-card" aria-label="Education">
+            <div class="section-title-wrap">
+              <span class="section-label">Education</span>
+              <h2 class="section-title">Academic Background</h2>
+            </div>
+            <p>My B.Tech in Computer Science and Engineering has an 8.07/10 CGPA; I scored 94.40% in Class 12 and 93.80% in Class 10.</p>
+          </section>
+
+          <section class="train-card" aria-label="Training and Certifications">
+            <div class="section-title-wrap">
+              <span class="section-label">Training</span>
+              <h2 class="section-title">Certifications &amp; Courses</h2>
+            </div>
+            <p>My training includes Data and Analytics, SQL for Data Analysis, Data Analytics, and full stack web development across MERN, React, Next.js, and Redux.</p>
+          </section>
+        </div>
+
+        <section class="connect-card" aria-label="Connect">
+          <div class="section-title-wrap">
+            <span class="section-label">Connect</span>
+            <h2 class="section-title">Get In Touch</h2>
+          </div>
+          <p>Find me on <a href="https://github.com/suryanshishere" target="_blank" rel="noopener noreferrer">GitHub</a>, <a href="https://linkedin.com/in/suryanshishere" target="_blank" rel="noopener noreferrer">LinkedIn</a>, and <a href="https://x.com/suryaalgorithm" target="_blank" rel="noopener noreferrer">X</a>, or email <a href="mailto:heresuryanshsingh@gmail.com">heresuryanshsingh@gmail.com</a>. Some project repositories are private; source access is available upon request.</p>
+          <div class="connect-actions">
+            <a href="mailto:heresuryanshsingh@gmail.com" class="connect-btn primary">Email Me (heresuryanshsingh@gmail.com)</a>
+            <a href="https://github.com/suryanshishere" target="_blank" rel="noopener noreferrer" class="connect-btn secondary">GitHub ↗</a>
+            <a href="https://linkedin.com/in/suryanshishere" target="_blank" rel="noopener noreferrer" class="connect-btn secondary">LinkedIn ↗</a>
+            <a href="https://x.com/suryaalgorithm" target="_blank" rel="noopener noreferrer" class="connect-btn secondary">X (Twitter) ↗</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer-note">
+        <p>&copy; 2026 Suryansh Singh. All rights reserved.</p>
+      </footer>
+    </div>
   </body>
 </html>
