@@ -38,7 +38,20 @@ a {
   text-decoration: none;
 }
 
-button,
+button {
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.16s ease, transform 0.16s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.16s cubic-bezier(0.16, 1, 0.3, 1), color 0.16s ease;
+}
+
+button:hover {
+  background-color: #e8e8df;
+}
+
+button:active {
+  transform: translate(2px, 2px);
+}
+
 input,
 textarea {
   font: inherit;
@@ -73,6 +86,7 @@ textarea {
   justify-content: space-between;
   position: relative;
   z-index: 50;
+  margin-bottom: clamp(48px, 6.5vh, 80px);
 }
 
 .brand {
@@ -82,6 +96,19 @@ textarea {
   gap: 11px;
   padding: 9px 14px;
   background: var(--white);
+  cursor: pointer;
+  transition: background-color 0.16s ease, transform 0.16s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand:hover {
+  background-color: #ecece2;
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.72);
+}
+
+.brand:active {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.72);
 }
 
 .brand-mark {
@@ -117,6 +144,16 @@ textarea {
   font-size: 17px;
   font-weight: 600;
   position: relative;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.desktop-nav a:hover {
+  background-color: #ecece2;
+}
+
+.desktop-nav a:active {
+  background-color: #dedee4;
 }
 
 .desktop-nav a:last-of-type {
@@ -152,19 +189,53 @@ textarea {
   display: none;
 }
 
+.mobile-menu-button {
+  background: var(--white);
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.16s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.16s ease,
+              color 0.16s ease;
+}
+
+.mobile-menu-button:hover {
+  background-color: #e8e8df;
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.72);
+}
+
+.mobile-menu-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.72);
+}
+
+.mobile-menu-button[aria-expanded="true"] {
+  background-color: var(--yellow);
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.72);
+}
+
+.mobile-menu-button[aria-expanded="true"]:hover {
+  background-color: #ffd63a;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.72);
+}
+
 .hero {
-  min-height: 680px;
+  min-height: 640px;
   display: grid;
   grid-template-columns: 1fr 0.86fr;
   gap: 80px;
   align-items: center;
-  padding: 25px 0 45px;
+  padding: 32px 0 54px;
   position: relative;
 }
 
 .hero-copy {
   position: relative;
-  padding-top: 12px;
+  padding-top: 14px;
 }
 
 .eyebrow,
@@ -209,7 +280,7 @@ textarea {
   max-width: 610px;
   font-size: 19px;
   line-height: 1.55;
-  margin: 36px 0 0;
+  margin: 48px 0 0;
 }
 
 .hero-actions {
@@ -1242,11 +1313,18 @@ textarea {
   box-shadow: 5px 5px 0 var(--black);
   font-weight: 700;
   cursor: pointer;
+  transition: transform 0.16s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.16s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.16s ease;
 }
 
 .copy-email:hover {
+  background-color: #ffd63a;
   transform: translate(3px, 3px);
   box-shadow: 2px 2px 0 var(--black);
+}
+
+.copy-email:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 var(--black);
 }
 
 .contact-links {
@@ -1363,6 +1441,7 @@ textarea {
   .site-header {
     min-height: 84px;
     justify-content: space-between;
+    margin-bottom: 44px;
   }
 
   .brand {
@@ -1372,28 +1451,50 @@ textarea {
 
   .mobile-menu-button {
     display: block;
-    background: var(--white);
-    padding: 12px 15px;
-    font-weight: 700;
   }
 
   .mobile-nav {
-    display: none;
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    top: 80px;
+    top: 76px;
     right: 0;
-    width: 230px;
+    width: 236px;
     background: var(--white);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.97);
+    transform-origin: top right;
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.22s ease;
+    pointer-events: none;
+    z-index: 100;
   }
 
   .mobile-nav.open {
-    display: grid;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
   }
 
   .mobile-nav a {
-    padding: 16px;
+    padding: 16px 20px;
     border-bottom: 2px solid var(--black);
     font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.16s ease, padding-left 0.16s cubic-bezier(0.16, 1, 0.3, 1), transform 0.12s ease;
+  }
+
+  .mobile-nav a:hover {
+    background-color: var(--yellow);
+    padding-left: 24px;
+  }
+
+  .mobile-nav a:active {
+    background-color: #ffd63a;
+    transform: translateX(3px);
   }
 
   .mobile-nav a:last-child {
@@ -1404,7 +1505,7 @@ textarea {
     grid-template-columns: 1fr;
     min-height: 0;
     gap: 50px;
-    padding: 30px 0 45px;
+    padding: 48px 0 45px;
   }
 
   .hero-copy {
@@ -1500,6 +1601,7 @@ textarea {
   .site-header {
     min-height: 72px;
     justify-content: space-between;
+    margin-bottom: 36px;
   }
 
   .brand {
@@ -1519,11 +1621,17 @@ textarea {
   }
 
   .mobile-menu-button {
-    font-size: 11px;
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+
+  .mobile-nav {
+    top: 68px;
+    width: 210px;
   }
 
   .hero {
-    padding: 24px 0 40px;
+    padding: 38px 0 40px;
     gap: 45px;
   }
 
@@ -1547,6 +1655,7 @@ textarea {
 
   .hero-intro {
     font-size: 16px;
+    margin-top: 40px;
   }
 
   .hero-actions {

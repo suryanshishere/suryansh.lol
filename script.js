@@ -7,6 +7,9 @@ function closeMenu() {
   mobileNav?.classList.remove("open");
   mobileNav?.setAttribute("aria-hidden", "true");
   menuButton?.setAttribute("aria-expanded", "false");
+  if (menuButton) {
+    menuButton.textContent = "MENU";
+  }
 }
 
 function hideToast() {
@@ -19,10 +22,21 @@ menuButton?.addEventListener("click", () => {
   const isOpen = mobileNav.classList.toggle("open");
   mobileNav.setAttribute("aria-hidden", String(!isOpen));
   menuButton.setAttribute("aria-expanded", String(isOpen));
+  menuButton.textContent = isOpen ? "CLOSE ✕" : "MENU";
 });
 
 mobileNav?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", closeMenu);
+});
+
+document.addEventListener("click", (event) => {
+  if (
+    mobileNav?.classList.contains("open") &&
+    !mobileNav.contains(event.target) &&
+    !menuButton?.contains(event.target)
+  ) {
+    closeMenu();
+  }
 });
 
 document.addEventListener("keydown", (event) => {
