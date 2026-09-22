@@ -14,7 +14,7 @@
   --shadow: 9px 9px 0 rgba(0, 0, 0, 0.68);
   --shadow-small: 5px 5px 0 rgba(0, 0, 0, 0.72);
   --max: 1240px;
-  --shell-pad: clamp(22px, 3.5vw, 64px);
+  --shell-pad: clamp(20px, 5.5vw + 4px, 84px);
 }
 
 * {
@@ -67,18 +67,16 @@ textarea {
 }
 
 .site-header {
-  min-height: 150px;
+  min-height: 96px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   position: relative;
   z-index: 50;
 }
 
 .brand {
-  position: absolute;
-  left: 0;
-  top: 48px;
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 11px;
@@ -114,7 +112,7 @@ textarea {
 }
 
 .desktop-nav a {
-  padding: 20px 24px;
+  padding: 14px 20px;
   border-right: 2px solid var(--black);
   font-size: 17px;
   font-weight: 600;
@@ -155,18 +153,18 @@ textarea {
 }
 
 .hero {
-  min-height: 930px;
+  min-height: 680px;
   display: grid;
   grid-template-columns: 1fr 0.86fr;
   gap: 80px;
   align-items: center;
-  padding: 70px 0 110px;
+  padding: 25px 0 45px;
   position: relative;
 }
 
 .hero-copy {
   position: relative;
-  padding-top: 70px;
+  padding-top: 12px;
 }
 
 .eyebrow,
@@ -260,7 +258,7 @@ textarea {
 
 .sticker-pink {
   background: var(--pink);
-  top: -20px;
+  top: -46px;
   left: 0;
   clip-path: polygon(50% 0, 61% 29%, 88% 12%, 72% 39%, 100% 50%, 72% 61%, 88% 88%, 61% 71%, 50% 100%, 39% 71%, 12% 88%, 28% 61%, 0 50%, 28% 39%, 12% 12%, 39% 29%);
 }
@@ -286,7 +284,7 @@ textarea {
 }
 
 .hero-visual {
-  min-height: 620px;
+  min-height: 480px;
   position: relative;
   display: grid;
   place-items: center;
@@ -300,13 +298,13 @@ textarea {
 
 .system-card {
   width: min(100%, 500px);
-  min-height: 500px;
+  min-height: 430px;
   position: relative;
   transform: rotate(1deg);
 }
 
 .system-topbar {
-  height: 58px;
+  height: 52px;
   border-bottom: 4px solid var(--black);
   display: flex;
   align-items: center;
@@ -328,7 +326,7 @@ textarea {
 }
 
 .system-canvas {
-  height: 365px;
+  height: 310px;
   background:
     linear-gradient(rgba(0,0,0,.07) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,0,0,.07) 1px, transparent 1px),
@@ -384,7 +382,7 @@ textarea {
 }
 
 .system-footer {
-  min-height: 73px;
+  min-height: 56px;
   border-top: 4px solid var(--black);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -431,11 +429,28 @@ textarea {
   box-shadow: 4px 4px 0 var(--black);
 }
 
-.burst-yellow {
+.burst-yellow,
+.burst-avatar {
   background: var(--yellow);
-  left: -7px;
-  top: 210px;
+  left: -20px;
+  top: 160px;
   border-radius: 50%;
+}
+
+.burst-avatar {
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  padding: 0;
+  z-index: 6;
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+.burst-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .burst-red {
@@ -482,7 +497,7 @@ textarea {
 }
 
 .section {
-  padding: 135px 0;
+  padding: 36px 0;
 }
 
 .section-heading {
@@ -490,7 +505,7 @@ textarea {
   align-items: end;
   justify-content: space-between;
   gap: 40px;
-  margin-bottom: 65px;
+  margin-bottom: 32px;
 }
 
 .section-heading h2 {
@@ -521,7 +536,7 @@ textarea {
 }
 
 .stat-cell {
-  padding: 42px 35px;
+  padding: 22px 24px;
   flex: 1;
   border-bottom: var(--border);
 }
@@ -536,13 +551,13 @@ textarea {
 }
 
 .stat-cell strong {
-  font-size: 52px;
+  font-size: 44px;
   line-height: 1;
 }
 
 .stat-cell span {
-  margin-top: 9px;
-  font-size: 18px;
+  margin-top: 6px;
+  font-size: 16px;
 }
 
 .service-grid {
@@ -551,8 +566,8 @@ textarea {
 }
 
 .service-card {
-  min-height: 390px;
-  padding: 50px 32px 32px;
+  min-height: 280px;
+  padding: 26px 22px 20px;
   border-right: var(--border);
   border-bottom: var(--border);
   display: flex;
@@ -568,13 +583,13 @@ textarea {
 }
 
 .service-icon {
-  width: 72px;
-  height: 72px;
+  width: 60px;
+  height: 60px;
   border: var(--border);
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   box-shadow: 4px 4px 0 var(--black);
 }
@@ -586,21 +601,21 @@ textarea {
 .white { background: var(--white); }
 
 .service-card h3 {
-  font-size: 33px;
+  font-size: 28px;
   line-height: 1.05;
-  margin: 30px 0 14px;
+  margin: 16px 0 8px;
 }
 
 .service-card p {
-  font-size: 17px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.45;
   margin: 0;
 }
 
 .service-card a {
   margin-top: auto;
-  padding-top: 32px;
-  font-size: 20px;
+  padding-top: 16px;
+  font-size: 18px;
   font-weight: 600;
   border-top: 2px solid var(--black);
 }
@@ -610,7 +625,7 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: 30px;
-  margin-bottom: 75px;
+  margin-bottom: 32px;
 }
 
 .portfolio-title h2 {
@@ -645,12 +660,12 @@ textarea {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 82px 74px;
+  gap: 36px 32px;
 }
 
 .project-card {
-  padding: 34px;
-  min-height: 555px;
+  padding: 22px;
+  min-height: 430px;
   display: flex;
   flex-direction: column;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
@@ -665,7 +680,7 @@ textarea {
 .tilt-right { transform: rotate(1deg); }
 
 .project-preview {
-  height: 315px;
+  height: 250px;
   border: var(--border);
   overflow: hidden;
   position: relative;
@@ -958,8 +973,8 @@ textarea {
 }
 
 .project-wide {
-  margin-top: 90px;
-  padding: 34px 38px;
+  margin-top: 40px;
+  padding: 24px 30px;
   display: grid;
   grid-template-columns: 80px 1fr auto;
   gap: 30px;
@@ -968,8 +983,8 @@ textarea {
 }
 
 .wide-index {
-  width: 60px;
-  height: 60px;
+  width: 54px;
+  height: 54px;
   display: grid;
   place-items: center;
   background: var(--purple);
@@ -979,8 +994,8 @@ textarea {
 }
 
 .project-wide h3 {
-  margin: 0 0 8px;
-  font-size: 28px;
+  margin: 0 0 6px;
+  font-size: 26px;
 }
 
 .project-wide p {
@@ -997,7 +1012,7 @@ textarea {
 }
 
 .experience-heading {
-  margin-bottom: 100px;
+  margin-bottom: 36px;
 }
 
 .curly-arrow {
@@ -1006,13 +1021,13 @@ textarea {
 }
 
 .experience-collage {
-  min-height: 980px;
+  min-height: 680px;
   position: relative;
 }
 
 .experience-card {
   width: min(600px, 51%);
-  padding: 38px;
+  padding: 26px 28px;
   position: absolute;
   background: var(--white);
 }
@@ -1024,13 +1039,13 @@ textarea {
 }
 
 .exp-two {
-  top: 235px;
+  top: 175px;
   right: 0;
   transform: rotate(1.7deg);
 }
 
 .exp-three {
-  top: 535px;
+  top: 380px;
   left: 90px;
   transform: rotate(-0.9deg);
 }
@@ -1088,7 +1103,7 @@ textarea {
   display: flex;
   align-items: end;
   justify-content: space-between;
-  margin-bottom: 50px;
+  margin-bottom: 26px;
   gap: 40px;
 }
 
@@ -1113,12 +1128,12 @@ textarea {
 }
 
 .skill-strip {
-  min-height: 94px;
+  min-height: 68px;
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 20px;
   align-items: center;
-  padding: 22px 28px;
+  padding: 14px 24px;
   border-bottom: var(--border);
 }
 
@@ -1138,7 +1153,7 @@ textarea {
 .education-grid {
   display: grid;
   grid-template-columns: 1fr .9fr;
-  gap: 90px;
+  gap: 48px;
   align-items: center;
 }
 
@@ -1152,19 +1167,19 @@ textarea {
 
 .education-sub {
   font-size: 19px;
-  margin-top: 25px;
+  margin-top: 18px;
   font-weight: 600;
 }
 
 .education-scores {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
+  gap: 22px;
 }
 
 .score-card {
-  min-height: 220px;
-  padding: 30px 24px;
+  min-height: 165px;
+  padding: 22px 20px;
   display: flex;
   flex-direction: column;
   transform: rotate(1.3deg);
@@ -1181,17 +1196,17 @@ textarea {
 
 .score-card strong {
   margin-top: auto;
-  font-size: 47px;
+  font-size: 44px;
   letter-spacing: -0.05em;
 }
 
 .score-card small {
-  margin-top: 5px;
+  margin-top: 4px;
 }
 
 .contact-card {
-  min-height: 470px;
-  padding: 70px;
+  min-height: 350px;
+  padding: 42px 32px;
   text-align: center;
   position: relative;
   box-shadow: 15px 15px 0 rgba(0,0,0,.5);
@@ -1206,13 +1221,13 @@ textarea {
 
 .contact-card > p:not(.mini-label) {
   max-width: 760px;
-  margin: 26px auto 0;
-  font-size: 19px;
+  margin: 18px auto 0;
+  font-size: 18px;
   line-height: 1.5;
 }
 
 .contact-buttons {
-  margin-top: 38px;
+  margin-top: 26px;
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -1220,8 +1235,8 @@ textarea {
 }
 
 .copy-email {
-  min-height: 58px;
-  padding: 0 25px;
+  min-height: 54px;
+  padding: 0 24px;
   background: var(--yellow);
   border: var(--border);
   box-shadow: 5px 5px 0 var(--black);
@@ -1238,7 +1253,7 @@ textarea {
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin-top: 35px;
+  margin-top: 22px;
   font-weight: 600;
 }
 
@@ -1253,14 +1268,15 @@ textarea {
 
 .footer {
   border-top: 4px solid var(--black);
-  min-height: 145px;
+  min-height: 85px;
 }
 
 .footer-inner {
-  min-height: 145px;
+  padding: 22px 0 18px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
+  row-gap: 12px;
 }
 
 .footer-brand {
@@ -1273,6 +1289,18 @@ textarea {
   display: flex;
   gap: 25px;
   font-weight: 700;
+}
+
+.footer-credit {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--black);
+  opacity: 0.85;
+  margin: 0;
+  border-top: 1px dashed rgba(0, 0, 0, 0.25);
+  padding-top: 12px;
 }
 
 .toast {
@@ -1288,10 +1316,22 @@ textarea {
   font-weight: 700;
   z-index: 1000;
   transition: transform .25s ease;
+  pointer-events: none;
+  max-width: min(calc(100vw - 32px), 480px);
+  width: max-content;
+  text-align: center;
+}
+
+.toast a {
+  color: var(--yellow);
+  text-decoration: underline;
+  margin-left: 8px;
+  cursor: pointer;
 }
 
 .toast.show {
   transform: translate(-50%, 0);
+  pointer-events: auto;
 }
 
 .reveal {
@@ -1305,18 +1345,29 @@ textarea {
   transform: translateY(0);
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1200px) {
+  .hero {
+    gap: 48px;
+  }
+
+  .project-grid {
+    gap: 48px 36px;
+  }
+}
+
+@media (max-width: 1024px) {
   .desktop-nav {
     display: none;
   }
 
   .site-header {
-    min-height: 110px;
-    justify-content: flex-end;
+    min-height: 84px;
+    justify-content: space-between;
   }
 
   .brand {
-    top: 28px;
+    top: auto;
+    left: auto;
   }
 
   .mobile-menu-button {
@@ -1329,7 +1380,7 @@ textarea {
   .mobile-nav {
     display: none;
     position: absolute;
-    top: 90px;
+    top: 80px;
     right: 0;
     width: 230px;
     background: var(--white);
@@ -1352,16 +1403,20 @@ textarea {
   .hero {
     grid-template-columns: 1fr;
     min-height: 0;
-    gap: 90px;
-    padding-top: 60px;
+    gap: 50px;
+    padding: 30px 0 45px;
   }
 
   .hero-copy {
-    padding-top: 100px;
+    padding-top: 10px;
   }
 
   .hero h1 {
     max-width: 760px;
+  }
+
+  .hero-note {
+    margin-left: 20px;
   }
 
   .hero-visual {
@@ -1442,21 +1497,20 @@ textarea {
 }
 
 @media (max-width: 680px) {
-  .shell {
-    width: min(calc(100% - 28px), var(--max));
-  }
-
   .site-header {
-    min-height: 94px;
+    min-height: 72px;
+    justify-content: space-between;
   }
 
   .brand {
-    top: 22px;
+    top: auto;
+    left: auto;
     padding: 7px 10px;
   }
 
   .brand-name {
-    display: none;
+    display: inline-block;
+    font-size: 15px;
   }
 
   .brand-mark {
@@ -1469,17 +1523,18 @@ textarea {
   }
 
   .hero {
-    padding: 60px 0 90px;
-    gap: 60px;
+    padding: 24px 0 40px;
+    gap: 45px;
   }
 
   .hero-copy {
-    padding-top: 85px;
+    padding-top: 8px;
   }
 
   .sticker {
     width: 72px;
     height: 72px;
+    top: -38px;
   }
 
   .sticker span {
@@ -1495,35 +1550,37 @@ textarea {
   }
 
   .hero-actions {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 20px;
   }
 
   .brutal-pill {
-    min-height: 54px;
-    padding: 0 23px;
+    min-height: 52px;
+    padding: 0 22px;
     border-width: 4px;
   }
 
   .hero-note {
-    margin-left: 90px;
+    margin-left: 15px;
+    margin-top: 22px;
   }
 
   .hero-visual {
-    min-height: 460px;
+    min-height: 380px;
   }
 
   .system-card {
-    min-height: 400px;
+    min-height: 340px;
   }
 
   .system-canvas {
-    height: 290px;
+    height: 240px;
   }
 
   .system-footer {
-    min-height: 55px;
+    min-height: 50px;
   }
 
   .system-footer span {
@@ -1566,14 +1623,20 @@ textarea {
     font-size: 22px;
   }
 
-  .burst-yellow {
-    left: -9px;
-    top: 165px;
+  .burst-yellow,
+  .burst-avatar {
+    left: -12px;
+    top: 130px;
+  }
+
+  .burst-avatar {
+    width: 68px;
+    height: 68px;
   }
 
   .burst-red {
     right: -8px;
-    bottom: 50px;
+    bottom: 35px;
   }
 
   .sketch-arrow {
@@ -1583,16 +1646,16 @@ textarea {
   .marquee-track {
     font-size: 17px;
     gap: 27px;
-    padding: 16px 0;
+    padding: 14px 0;
   }
 
   .section {
-    padding: 90px 0;
+    padding: 24px 0;
   }
 
   .section-heading {
     align-items: flex-start;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
   }
 
   .section-heading h2 {
@@ -1611,7 +1674,7 @@ textarea {
   .stat-cell {
     border-right: 0;
     border-bottom: var(--border);
-    padding: 28px 25px;
+    padding: 18px 20px;
   }
 
   .stat-cell:last-child {
@@ -1619,7 +1682,7 @@ textarea {
   }
 
   .stat-cell strong {
-    font-size: 38px;
+    font-size: 36px;
   }
 
   .service-grid {
@@ -1627,10 +1690,10 @@ textarea {
   }
 
   .service-card {
-    min-height: 340px;
+    min-height: 250px;
     border-right: 0;
     border-bottom: var(--border) !important;
-    padding: 36px 25px 25px;
+    padding: 24px 20px 20px;
   }
 
   .service-card:last-child {
@@ -1640,7 +1703,7 @@ textarea {
   .portfolio-title {
     justify-content: flex-start;
     gap: 15px;
-    margin-bottom: 55px;
+    margin-bottom: 26px;
   }
 
   .portfolio-title h2 {
@@ -1653,7 +1716,7 @@ textarea {
   }
 
   .project-grid {
-    gap: 58px;
+    gap: 40px;
   }
 
   .project-card {
@@ -1663,7 +1726,7 @@ textarea {
   }
 
   .project-preview {
-    height: 235px;
+    height: 190px;
   }
 
   .project-meta h3 {
@@ -1688,8 +1751,8 @@ textarea {
   }
 
   .project-wide {
-    margin-top: 60px;
-    padding: 25px;
+    margin-top: 32px;
+    padding: 18px 20px;
     grid-template-columns: 1fr;
   }
 
@@ -1698,15 +1761,15 @@ textarea {
   }
 
   .experience-heading {
-    margin-bottom: 55px;
+    margin-bottom: 26px;
   }
 
   .experience-collage {
-    gap: 32px;
+    gap: 20px;
   }
 
   .experience-card {
-    padding: 27px 24px;
+    padding: 20px 18px;
     transform: none;
   }
 
@@ -1717,7 +1780,7 @@ textarea {
   .skill-strip {
     grid-template-columns: 1fr;
     gap: 10px;
-    padding: 21px;
+    padding: 15px 18px;
   }
 
   .skills-head h2 {
@@ -1729,13 +1792,14 @@ textarea {
   }
 
   .score-card {
-    min-height: 180px;
+    min-height: 135px;
     transform: none !important;
   }
 
   .contact-card {
-    padding: 50px 22px;
+    padding: 34px 18px;
     min-height: 0;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.5);
   }
 
   .contact-card h2 {
@@ -1761,11 +1825,17 @@ textarea {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 15px;
-    padding: 30px 0;
+    padding: 18px 0;
   }
 
   .footer-links {
     justify-self: center;
+  }
+
+  .footer-credit {
+    font-size: 12px;
+    line-height: 1.55;
+    padding-top: 10px;
   }
 }
 

@@ -1,10 +1,18 @@
 const menuButton = document.querySelector(".mobile-menu-button");
 const mobileNav = document.querySelector(".mobile-nav");
+const toast = document.querySelector(".toast");
+let toastTimeout;
 
 function closeMenu() {
   mobileNav?.classList.remove("open");
   mobileNav?.setAttribute("aria-hidden", "true");
   menuButton?.setAttribute("aria-expanded", "false");
+}
+
+function hideToast() {
+  if (!toast) return;
+  toast.classList.remove("show");
+  clearTimeout(toastTimeout);
 }
 
 menuButton?.addEventListener("click", () => {
@@ -18,7 +26,16 @@ mobileNav?.querySelectorAll("a").forEach((link) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeMenu();
+  if (event.key === "Escape") {
+    closeMenu();
+    hideToast();
+  }
+});
+
+toast?.addEventListener("click", (event) => {
+  if (event.target.tagName !== "A") {
+    hideToast();
+  }
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
@@ -43,29 +60,73 @@ if ("IntersectionObserver" in window) {
   revealItems.forEach((item) => item.classList.add("visible"));
 }
 
-const copyButton = document.querySelector(".copy-email");
-const toast = document.querySelector(".toast");
-
-copyButton?.addEventListener("click", async () => {
-  const email = copyButton.dataset.email;
-
-  try {
-    await navigator.clipboard.writeText(email);
-  } catch {
-    const input = document.createElement("input");
-    input.value = email;
-    document.body.appendChild(input);
-    input.select();
-    document.execCommand("copy");
-    input.remove();
+async function copyTextToClipboard(text) {
+  let copied = false;
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(text);
+      copied = true;
+    } catch {
+      copied = false;
+    }
   }
 
-  const original = copyButton.textContent;
-  copyButton.textContent = "Copied ✓";
-  toast?.classList.add("show");
+  if (!copied) {
+    try {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-9999px";
+      textArea.style.top = "0";
+      textArea.style.opacity = "0";
+      textArea.setAttribute("readonly", "");
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      copied = document.execCommand("copy");
+      textArea.remove();
+    } catch {
+      copied = false;
+    }
+  }
 
-  window.setTimeout(() => {
-    copyButton.textContent = original;
-    toast?.classList.remove("show");
-  }, 1800);
+  return copied;
+}
+
+function showToast(email) {
+  if (!toast) return;
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+  toast.innerHTML = `Email copied: <strong>${email}</strong> <a href="${gmailUrl}" target="_blank" rel="noopener noreferrer">Open Gmail ↗</a>`;
+  toast.classList.add("show");
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3500);
+}
+
+async function handleEmailAction(email, buttonElement = null) {
+  await copyTextToClipboard(email);
+  showToast(email);
+
+  if (buttonElement) {
+    const originalText = buttonElement.textContent;
+    buttonElement.textContent = "Copied ✓";
+    setTimeout(() => {
+      buttonElement.textContent = originalText;
+    }, 2000);
+  }
+}
+
+document.querySelectorAll(".copy-email").forEach((button) => {
+  button.addEventListener("click", () => {
+    const email = button.dataset.email || "heresuryanshsingh@gmail.com";
+    handleEmailAction(email, button);
+  });
+});
+
+document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    const email = link.dataset.email || link.href.replace(/^mailto:/i, "").split("?")[0];
+    handleEmailAction(email);
+  });
 });
